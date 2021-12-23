@@ -10,13 +10,22 @@ function HomeScreen() {
     );
 }
 
+function DetailsScreen() {
+    return (
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+            <Text>Details Screen</Text>
+        </View>
+    );
+}
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name="首頁" component={HomeScreen}/>
+            <Stack.Navigator initialRouteName="Home">
+                <Stack.Screen name="Home" component={HomeScreen} options={{title: 'Overview'}}/>
+                <Stack.Screen name="Details" component={DetailsScreen}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
