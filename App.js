@@ -16,6 +16,15 @@ function HomeScreen({navigation}) {
                     });
                 }}
             />
+            <Button
+                title="Go to Profile"
+                onPress={() => {
+                    navigation.navigate('Profile', {
+                        name: 'Custom profile header'
+                    });
+                }}
+            />
+
         </View>
     );
 }
@@ -45,6 +54,14 @@ function DetailsScreen({route, navigation}) {
     );
 }
 
+function ProfileScreen({navigation}) {
+    return (
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+            <Text>Profile Screen</Text>
+        </View>
+    );
+}
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -53,6 +70,11 @@ export default function App() {
             <Stack.Navigator initialRouteName="Home">
                 <Stack.Screen name="Home" component={HomeScreen} options={{title: 'Overview'}}/>
                 <Stack.Screen name="Details" component={DetailsScreen}/>
+                <Stack.Screen
+                    name="Profile"
+                    component={ProfileScreen}
+                    options={({route}) => ({title: route.params.name})}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );
