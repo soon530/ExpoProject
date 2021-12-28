@@ -6,3 +6,5 @@
 expo init ExpoProject
 ```
 
+- 用commit來關issue成功
+
